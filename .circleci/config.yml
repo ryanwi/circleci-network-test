@@ -1,0 +1,16 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.0.2
+
+jobs:
+  build:
+    docker:
+    # Primary container image where all steps run.
+      - image: cimg/node:18.8.0
+    steps:
+      run: which ping
+      run: which nc
+      # run: nc -vz localhost 3306
+
+workflows: null
