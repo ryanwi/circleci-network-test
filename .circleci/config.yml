@@ -6,8 +6,8 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/base
-      - image: cimg/base
+      - image: cimg/base:2022.09
+      - image: cimg/base:2022.09
         name: secondary
     steps:
       - run: "ls"
