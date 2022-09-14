@@ -12,7 +12,8 @@ jobs:
     # Secondary container image on common network.
       - image: cimg/base:current
         name: secondary
-        command: /bin/bash -c 'sleep 5 && sudo apt-get update && sudo apt-get install -y netcat && nc primaryA1 80'
+        command: /bin/bash -c 'sleep 5 && sudo apt-get update && sudo apt-get install -y netcat && nc randomhost 80'
+        # nc: getaddrinfo for host "primaryA1" port 80: Name or service not known
     resource_class: small
     steps:
       - run: "ls"
