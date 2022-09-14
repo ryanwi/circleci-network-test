@@ -6,13 +6,16 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/base:2022.09
+    # Primary container image where all steps run.
+      - image: cimg/base:current
         name: primaryhostA
+    # Secondary container image on common network.
       - image: cimg/base:2022.09
         name: secondary
-        # command: |
+        # command:
         #   sudo apt-get update && sudo apt-get install -y netcat iputils-ping && \
         #   nc primaryhostA 80
+    resource_class: small
     steps:
       - run: "ls"
       - run: sudo apt-get update && sudo apt-get install -y netcat iputils-ping
