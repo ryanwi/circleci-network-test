@@ -12,11 +12,12 @@ jobs:
     # Secondary container image on common network.
       - image: cimg/base:current
         name: secondary
-        command: /bin/bash -c 'sudo apt-get update && sudo apt-get install -y netcat && nc primaryA1 80'
+        command: /bin/bash -c 'sleep 5 && sudo apt-get update && sudo apt-get install -y netcat && nc primaryA1 80'
     resource_class: small
     steps:
       - run: "ls"
-      # - run: sudo apt-get update && sudo apt-get install -y netcat iputils-ping dnsutils
+      - run: sudo apt-get update && sudo apt-get install -y netcat iputils-ping dnsutils
+      - run: sleep 30
       # - run: nslookup secondary
       # - run: ping secondary
       # - run: nc -vz secondary 80
