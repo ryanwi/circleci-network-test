@@ -7,13 +7,19 @@ jobs:
   build:
     docker:
       - image: cimg/base:2022.09
+        name: primaryhostA
       - image: cimg/base:2022.09
         name: secondary
+        command: |
+          sudo apt-get update && sudo apt-get install -y netcat iputils-ping && \
+          nc primaryhostA 80
     steps:
       - run: "ls"
       - run: sudo apt-get update && sudo apt-get install -y netcat iputils-ping
       # - run: ping secondary
-      - run: nc -vz random 80
-      # - run: docker network ls
+      # - run: nc -vz secondary 80
+      # nc: connect to secondary (192.168.208.4) port 80 (tcp) failed: Connection refused
+      # - run: nc -vz random 80
+      # nc: getaddrinfo for host "random" port 80: Name or service not known
 
 workflows: null
