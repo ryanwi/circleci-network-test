@@ -11,6 +11,7 @@ jobs:
         name: secondary
     steps:
       - run: "ls"
+      - run: sudo apt-get update && sudo apt-get install -y nc
       # - run: docker network ls
       # - run: ping
       # - run: which nc
