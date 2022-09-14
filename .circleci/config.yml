@@ -11,10 +11,9 @@ jobs:
         name: secondary
     steps:
       - run: "ls"
-      - run: sudo apt-get update && sudo apt-get install -y netcat
-      - run: which nc
-      # - run: docker network ls
+      - run: sudo apt-get update && sudo apt-get install -y netcat iputils
       - run: ping secondary
-      # - run: nc -vz localhost 3306
+      # - run: nc -vz secondary 80
+      # - run: docker network ls
 
 workflows: null
