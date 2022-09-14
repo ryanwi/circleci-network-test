@@ -11,7 +11,7 @@ jobs:
         name: secondary
     steps:
       - run: "ls"
-      - run: sudo apt-get update && sudo apt-get install -y netcat iputils
+      - run: sudo apt-get update && sudo apt-get install -y netcat iputils-ping
       - run: ping secondary
       # - run: nc -vz secondary 80
       # - run: docker network ls
