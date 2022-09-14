@@ -8,6 +8,7 @@ jobs:
     docker:
       - image: cimg/base
       - image: cimg/base
+        name: secondary
     steps:
       - run: "ls"
       # - run: docker network ls
