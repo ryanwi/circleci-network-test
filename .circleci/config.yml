@@ -17,9 +17,9 @@ jobs:
     steps:
       - run: "ls"
       - run: sudo apt-get update && sudo apt-get install -y netcat iputils-ping dnsutils
-      - run: nslookup secondary
+      # - run: nslookup secondary
       # - run: ping secondary
-      # - run: nc -vz secondary 80
+      - run: nc -vz secondary 80
       # nc: connect to secondary (192.168.208.4) port 80 (tcp) failed: Connection refused
       # - run: nc -vz random 80
       # nc: getaddrinfo for host "random" port 80: Name or service not known
