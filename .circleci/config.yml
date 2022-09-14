@@ -18,7 +18,7 @@ jobs:
     resource_class: small
     steps:
       - run: "ls"
-      - run: sudo apt-get update && sudo apt-get install -y netcat iputils-ping
+      - run: sudo apt-get update && sudo apt-get install -y netcat iputils-ping bind-utils
       - run: nslookup secondary
       # - run: ping secondary
       # - run: nc -vz secondary 80
