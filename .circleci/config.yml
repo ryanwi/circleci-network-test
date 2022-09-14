@@ -14,7 +14,7 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y netcat
       - run: which nc
       # - run: docker network ls
-      # - run: ping
+      - run: ping secondary
       # - run: nc -vz localhost 3306
 
 workflows: null
