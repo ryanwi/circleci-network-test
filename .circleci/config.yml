@@ -9,7 +9,8 @@ jobs:
     # Primary container image where all steps run.
       - image: cimg/node:18.8.0
     steps:
-      - run: ping
+      - run: docker network ls
+      # - run: ping
       # - run: which nc
       # - run: nc -vz localhost 3306
 
