@@ -13,10 +13,9 @@ jobs:
       - image: cimg/base:current
         name: secondary
         command: /bin/bash -c 'cat /etc/hosts && sleep 10 && sudo apt-get update && sudo apt-get install -y netcat && nc primaryA1 8888'
-        # nc: getaddrinfo for host "primaryA1" port 80: Name or service not known
+        # error: nc: getaddrinfo for host "primaryA1" port 8888: Name or service not known
     resource_class: small
     steps:
-      - run: "ls"
       - run: sudo apt-get update && sudo apt-get install -y netcat
       - run: printf 'HTTP/1.1 200 OK\n\n%s' "hithere" | nc -l 8888
       # - run: nslookup secondary
