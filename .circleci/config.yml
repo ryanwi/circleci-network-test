@@ -12,7 +12,7 @@ jobs:
     # Secondary container image on common network.
       - image: cimg/base:current
         name: secondary
-        command: /bin/bash -c 'ifconfig && cat /etc/hosts && sleep 10 && sudo apt-get update && sudo apt-get install -y netcat && nc -vz primaryA1 8888'
+        command: /bin/bash -c 'ifconfig && cat /etc/hosts && sleep 10 && sudo apt-get update && sudo apt-get install -y netcat && nc -vz localhost 8888'
         # error: nc: getaddrinfo for host "primaryA1" port 8888: Name or service not known
     resource_class: small
     steps:
