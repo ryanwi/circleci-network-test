@@ -12,13 +12,13 @@ jobs:
     # Secondary container image on common network.
       - image: cimg/base:current
         name: secondary
-        command: /bin/bash -c 'sleep 5 && sudo apt-get update && sudo apt-get install -y netcat && nc primaryA1 80'
+        command: /bin/bash -c 'sleep 10 && sudo apt-get update && sudo apt-get install -y netcat && nc primaryA1 8888'
         # nc: getaddrinfo for host "primaryA1" port 80: Name or service not known
     resource_class: small
     steps:
       - run: "ls"
-      - run: sudo apt-get update && sudo apt-get install -y netcat iputils-ping dnsutils
-      - run: sleep 30
+      - run: sudo apt-get update && sudo apt-get install -y netcat
+      - run: printf 'HTTP/1.1 200 OK\n\n%s' "hithere" | nc -l 8888
       # - run: nslookup secondary
       # - run: ping secondary
       # - run: nc -vz secondary 80
